@@ -1,5 +1,3 @@
-Create a file named log-archive (no extension) and paste this:
-
 #!/bin/bash
 
 
