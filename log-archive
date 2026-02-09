@@ -1,4 +1,7 @@
+Create a file named log-archive (no extension) and paste this:
+
 #!/bin/bash
+
 
 # Check if log directory argument is provided
 if [ -z "$1" ]; then
@@ -6,7 +9,9 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+
 LOG_DIR="$1"
+
 
 # Check if the directory exists
 if [ ! -d "$LOG_DIR" ]; then
@@ -14,20 +19,29 @@ if [ ! -d "$LOG_DIR" ]; then
   exit 1
 fi
 
+
 # Directory to store archives
 ARCHIVE_DIR="$HOME/log-archives"
 mkdir -p "$ARCHIVE_DIR"
+
 
 # Timestamp for archive name
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 ARCHIVE_NAME="logs_archive_${TIMESTAMP}.tar.gz"
 
+
 # Compress logs
 tar -czf "$ARCHIVE_DIR/$ARCHIVE_NAME" "$LOG_DIR"
+
 
 # Log archive activity
 echo "Archived $LOG_DIR on $(date)" >> "$ARCHIVE_DIR/archive.log"
 
+
 # Success message
 echo "Logs successfully archived:"
 echo "$ARCHIVE_DIR/$ARCHIVE_NAME"
+
+After downloading from GitHub, users will run:
+
+chmod +x log-archive
