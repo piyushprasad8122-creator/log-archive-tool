@@ -1,80 +1,147 @@
 # Log Archive CLI Tool
 
 
-A simple command-line tool to archive system logs by compressing them into a `.tar.gz` file with a timestamp.  
-Useful for cleaning up old logs while keeping them available for future reference.
+A Bash-based command-line tool that archives system logs by compressing them into timestamped `.tar.gz` files.  
+This project is built as part of the **roadmap.sh Log Archive Tool project** and fulfills all the required objectives.
+
+
+🔗 **Project Reference (Completed):**  
+https://roadmap.sh/projects/log-archive-tool
 
 
 ---
 
 
-## Features
+## ✅ Project Status
 
 
-- Accepts a log directory as an argument
-- Compresses logs into a timestamped `.tar.gz` file
-- Stores archives in a separate directory
-- Logs archive date and time
+✔️ This project has been **successfully completed** according to the requirements defined on **roadmap.sh**.  
+✔️ All core features and expected behaviors are implemented and tested.
 
 
 ---
 
 
-## Usage
+## 📌 Project Overview
 
 
-Make the script executable:
+On Unix/Linux systems, logs are commonly stored in `/var/log`.  
+Over time, these logs can grow large and clutter the system.
+
+
+This tool helps by:
+- Archiving logs on demand
+- Compressing them efficiently
+- Storing them in a separate directory
+- Keeping a record of archive operations
+
+
+---
+
+
+## ✨ Features
+
+
+- Accepts a log directory as a command-line argument
+- Compresses logs into a `.tar.gz` archive
+- Uses timestamp-based archive naming
+- Stores archives in a dedicated directory
+- Logs the date and time of each archive operation
+- Lightweight and easy-to-use CLI tool
+
+
+---
+
+
+## 📂 Project Structure
+
+
+
+log-archive-tool/
+├── log-archive
+├── README.md
+├── .gitignore
+└── screenshots/
+
+
+
+---
+
+
+## ⚙️ Requirements
+
+
+- Linux / Unix-based system
+- Bash shell
+- `tar` utility
+
+
+---
+
+
+## 🚀 Usage
+
+
+### 1. Make the script executable
 
 
 ```bash
 chmod +x log-archive
-
-Run the tool:
-
+2. Run the tool
 ./log-archive <log-directory>
-
-Example:
-
+Example
 ./log-archive /var/log
-Archive Format
+🗂️ Archive Format
+
+Archives are created using the following naming convention:
+
 logs_archive_YYYYMMDD_HHMMSS.tar.gz
 
 Example:
 
 logs_archive_20240816_100648.tar.gz
-Requirements
+🖼️ Screenshots
+Running the tool
+<img src="screenshots/run-command.png" width="700">
+Generated archive files
+<img src="screenshots/archive-files.png" width="700">
+Archive history log
+<img src="screenshots/archive-log.png" width="700">
+📝 Archive Log
 
-Linux / Unix-based system
+Each time the tool runs, it records the archive activity in:
 
-Bash
+~/log-archives/archive.log
 
-tar utility
+Example entry:
 
-Future Improvements
+Archived /var/log on Fri Aug 16 10:06:48 IST 2024
+🔒 Git Ignore Rules
 
-Cron job automation
+The following files and folders are excluded from version control:
 
-Email notifications
+log-archives/
+
+*.tar.gz
+
+This ensures the repository remains clean and lightweight.
+
+🔮 Future Enhancements
+
+Automate archiving using cron jobs
+
+Email notifications after archive completion
 
 Upload archives to cloud storage (AWS S3)
 
-Delete old logs after archiving
+Automatically remove old logs after archiving
 
-Author
+Add compression level options
+
+👤 Author
 
 Piyush
 
+📄 License
 
-
----
-
-
-## 3️⃣ `.gitignore` (important)
-
-
-Create a file named **`.gitignore`** and paste this:
-
-
-```text
-log-archives/
-*.tar.gz
+This project is open-source and created for learning, practice, and portfolio purposes.
